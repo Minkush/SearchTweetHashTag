@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/apple/.android/build-cache/92cebcaaff809eff960d78a81adba45caf7e2633/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ee07783aa59eefdeacc107abf472f45f60272302">
+        <dex dex="/Users/apple/Documents/Android Studio/TwitterHashSearch/app/build/intermediates/pre-dexed/debug/classes_9aef7c6beb83b7ced2a791bade9346da2c424494.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/apple/.android/build-cache/4208fa7d803b87f252d0fc0151c2cfafe27f9602/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9bdfc3e83c6bc1f8bc5807cdaf7e94ac884a2a0d">
+        <dex dex="/Users/apple/Documents/Android Studio/TwitterHashSearch/app/build/intermediates/pre-dexed/debug/classes_a7f519892c1a8f8be0247f1bf2dfe59eeaa17d5c.jar" />
+    </item>
+
+</items>

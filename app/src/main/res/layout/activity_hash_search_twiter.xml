@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="twitterhashsearch.minkush.com.twitterhashsearch.HashSearchTwiterActivity">
+
+    <RelativeLayout
+        android:id="@+id/activity_hash_search_twitter_relativeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/activity_hash_search_twitter_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Hash Tag"
+            android:maxLines="1"
+            android:layout_toLeftOf="@+id/activity_hash_search_twitter_search_button"
+            />
+
+        <Button
+            android:id="@+id/activity_hash_search_twitter_search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:layout_alignParentRight="true"
+            />
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/activity_hash_search_twitter_recycleview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activity_hash_search_twitter_relativeLayout"
+        ></android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/activity_vertically_margin"
+    android:paddingBottom="@dimen/activity_vertically_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin">
+
+    <RelativeLayout
+        android:id="@+id/adapter_twitter_user_info_relativelayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <twitterhashsearch.minkush.com.twitterhashsearch.customview.RoundNetworkImageview
+            android:id="@+id/adapter_twitter_imageview_profilepic"
+            android:layout_width="@dimen/user_width"
+            android:layout_height="@dimen/user_height"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            app:siBorderColor="@android:color/white"
+            app:siBorderWidth="1dp" />
+
+        <TextView
+            android:id="@+id/adapter_twitter_name_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text=""
+            android:layout_toRightOf="@+id/adapter_twitter_imageview_profilepic"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:textColor="@android:color/black" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/adapter_twitter_textview"
+        android:layout_below="@+id/adapter_twitter_user_info_relativelayout"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/adapter_twitter_date_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/adapter_twitter_textview"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/adapter_twitter_retweet_count_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/adapter_twitter_date_textview"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/adapter_twitter_favourite_count_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/adapter_twitter_retweet_count_textview"
+        android:textColor="@android:color/black" />
+
+</RelativeLayout>

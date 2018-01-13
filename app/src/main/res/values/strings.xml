@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TwitterHashSearch</string>
+    <string name="activity_name">Get Tweets</string>
+
+</resources>
