@@ -6,15 +6,13 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import twitterhashsearch.minkush.com.twitterhashsearch.R;
-import twitterhashsearch.minkush.com.twitterhashsearch.apis.postapi.PostGetTweetApi;
+import twitterhashsearch.minkush.com.twitterhashsearch.apis.postapi.GetTweetApi;
 import twitterhashsearch.minkush.com.twitterhashsearch.customview.RoundNetworkImageview;
-import twitterhashsearch.minkush.com.twitterhashsearch.customview.ShrededNetworkImageView;
 import twitterhashsearch.minkush.com.twitterhashsearch.utility.AppController;
 
 /**
@@ -24,7 +22,7 @@ import twitterhashsearch.minkush.com.twitterhashsearch.utility.AppController;
 public class TweetRecycleView extends RecyclerView.Adapter<TweetRecycleView.ViewHolder> {
 
     Context context;
-    ArrayList<PostGetTweetApi.Tweet> tweetArrayList;
+    ArrayList<GetTweetApi.Tweet> tweetArrayList;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(View v) {
@@ -51,7 +49,7 @@ public class TweetRecycleView extends RecyclerView.Adapter<TweetRecycleView.View
     }
 
 
-    public TweetRecycleView(Context context,ArrayList<PostGetTweetApi.Tweet> tweetArrayList) {
+    public TweetRecycleView(Context context,ArrayList<GetTweetApi.Tweet> tweetArrayList) {
         this.context = context;
         this.tweetArrayList = tweetArrayList;
     }
@@ -68,7 +66,7 @@ public class TweetRecycleView extends RecyclerView.Adapter<TweetRecycleView.View
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
 
         TweetHolder tweetHolder = (TweetHolder) viewHolder;
-        PostGetTweetApi.Tweet tweet = tweetArrayList.get(position);
+        GetTweetApi.Tweet tweet = tweetArrayList.get(position);
         tweetHolder.textView_text.setText(Html.fromHtml("<b>" + "Tweet : " + "</b> " +tweet.s_tweet_text.toString()));
         tweetHolder.textView_date.setText(Html.fromHtml("<b>" + "Date : " + "</b> " +tweet.s_tweet_date.toString()));
         tweetHolder.textView_retweet.setText(Html.fromHtml("<b>" + "Retweet Count : " + "</b> " +tweet.s_retweet_count.toString()));

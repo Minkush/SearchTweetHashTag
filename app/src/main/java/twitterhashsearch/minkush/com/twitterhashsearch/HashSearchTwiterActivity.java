@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import twitterhashsearch.minkush.com.twitterhashsearch.apis.postapi.PostGetTweetApi;
-import twitterhashsearch.minkush.com.twitterhashsearch.apis.postapi.PostGetTweeterAuthApi;
+import twitterhashsearch.minkush.com.twitterhashsearch.apis.postapi.GetTweetApi;
+import twitterhashsearch.minkush.com.twitterhashsearch.apis.postapi.GetTweetAuthApi;
 import twitterhashsearch.minkush.com.twitterhashsearch.adapter.TweetRecycleView;
 import twitterhashsearch.minkush.com.twitterhashsearch.utility.APIKeyConstant;
 import twitterhashsearch.minkush.com.twitterhashsearch.utility.APIUrlConstant;
@@ -31,7 +31,7 @@ public class HashSearchTwiterActivity extends AppCompatActivity {
     Button button_search;
     final Handler tweetIntervalhandler = new Handler();
     public static long API_HIT_INTERVAL_TIME = 2000;
-    public ArrayList<PostGetTweetApi.Tweet> tweetArrayList = new ArrayList<>();
+    public ArrayList<GetTweetApi.Tweet> tweetArrayList = new ArrayList<>();
     public static int GET_TWITTER_FRESH_DATA = 1;
     public static int GET_TWITTER_UPDATE_DATA = 2;
 
@@ -69,7 +69,7 @@ public class HashSearchTwiterActivity extends AppCompatActivity {
                 editText.setError(null);
                 Map map = new HashMap();
                 map.put(APIKeyConstant.AUTHENTICATION_GRANT_TYPE,"client_credentials");
-                new PostGetTweeterAuthApi().postGetAuthTweetApi(map,HashSearchTwiterActivity.this);
+                new GetTweetAuthApi(HashSearchTwiterActivity.this,map).execute();
 
             }
         });
@@ -86,7 +86,7 @@ public class HashSearchTwiterActivity extends AppCompatActivity {
         }
     }
 
-    public void responseGetAuthTweetApi(PostGetTweeterAuthApi.ResponseGetAuthTweetApi responseGetAuthTweetApi){
+    public void responseGetAuthTweetApi(GetTweetAuthApi.ResponseGetAuthTweetApi responseGetAuthTweetApi){
 
         SharePreference.saveKeyValueSharePreference(this,
                 SharePreference.SharePrefrenceKeyConstant.s_key_twitter_access_token,
@@ -98,10 +98,10 @@ public class HashSearchTwiterActivity extends AppCompatActivity {
     public void getTweetApi(int freshUpdateType){
         String s_hash_tag = editText.getText().toString();
         String s_get_Api = APIUrlConstant.GET_SEARCH_HASHTAG_API + "q=" + s_hash_tag;
-        new PostGetTweetApi().postGetTweetApi(s_get_Api,this,freshUpdateType);
+        new GetTweetApi(this,s_get_Api,freshUpdateType).execute();
     }
 
-    public void responseGetTweetApi( PostGetTweetApi.ResponseGetTweetApi responseGetTweetApi){
+    public void responseGetTweetApi( GetTweetApi.ResponseGetTweetApi responseGetTweetApi){
 
         tweetArrayList.clear();
         tweetArrayList.addAll(responseGetTweetApi.tweetArrayList);
