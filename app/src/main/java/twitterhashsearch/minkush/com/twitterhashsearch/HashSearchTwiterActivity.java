@@ -1,5 +1,6 @@
 package twitterhashsearch.minkush.com.twitterhashsearch;
 
+import android.content.Context;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -67,6 +69,14 @@ public class HashSearchTwiterActivity extends AppCompatActivity {
                     return;
                 }
                 editText.setError(null);
+
+                // for hide the keyboard
+                if (getCurrentFocus() != null) {
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                }
+
+
                 Map map = new HashMap();
                 map.put(APIKeyConstant.AUTHENTICATION_GRANT_TYPE,"client_credentials");
                 new GetTweetAuthApi(HashSearchTwiterActivity.this,map).execute();

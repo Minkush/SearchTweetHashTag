@@ -5,15 +5,15 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.widget.ImageView;
 
-import com.android.volley.toolbox.NetworkImageView;
 import com.github.siyamed.shapeimageview.shader.ShaderHelper;
 
 /**
  * Created by apple on 14/01/18.
  */
 
-public abstract class ShrededNetworkImageView extends NetworkImageView {
+public abstract class ShrededNetworkImageView extends ImageView {
 
     private final static boolean DEBUG = false;
     private ShaderHelper pathHelper;

@@ -1,6 +1,10 @@
 package twitterhashsearch.minkush.com.twitterhashsearch.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -8,10 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import twitterhashsearch.minkush.com.twitterhashsearch.R;
 import twitterhashsearch.minkush.com.twitterhashsearch.apis.postapi.GetTweetApi;
+import twitterhashsearch.minkush.com.twitterhashsearch.apis.postapi.UpdateImageTask;
 import twitterhashsearch.minkush.com.twitterhashsearch.customview.RoundNetworkImageview;
 import twitterhashsearch.minkush.com.twitterhashsearch.utility.AppController;
 
@@ -74,13 +82,8 @@ public class TweetRecycleView extends RecyclerView.Adapter<TweetRecycleView.View
                 tweet.s_favorite_count.toString()));
 
         tweetHolder.textView_user_name.setText(tweet.user.s_name);
-
-        AppController.getInstance().getVollayImageLoader().get(tweet.user.s_image_url,
-                com.android.volley.toolbox.ImageLoader.
-                        getImageListener(tweetHolder.imageView_user_pic,
-                                R.drawable.placeholderuser, R.drawable.placeholderuser));
-        tweetHolder.imageView_user_pic.setImageUrl(tweet.user.s_image_url,
-                AppController.getInstance().getVollayImageLoader());
+        Picasso.with(context).load(tweet.user.s_image_url).placeholder(R.drawable.placeholderuser)
+                .into(tweetHolder.imageView_user_pic);
 
     }
 
